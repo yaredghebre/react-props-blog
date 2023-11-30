@@ -34,18 +34,24 @@ const Main = () => {
           </div>
 
           {/* Posts */}
-          <div className="xs:grid-cols-1 my-10 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {publishedPosts.map((post, i) => (
-              <Card
-                key={i}
-                image={post.image}
-                title={post.title}
-                content={post.content}
-                tags={post.tags}
-                published={post.published}
-              />
-            ))}
-          </div>
+          {publishedPosts.length === 0 ? (
+            <h2 className="text-center text-4xl font-bold">
+              Non ci sono posts da mostrare :(
+            </h2>
+          ) : (
+            <div className="xs:grid-cols-1 my-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+              {publishedPosts.map((post, i) => (
+                <Card
+                  key={i}
+                  image={post.image}
+                  title={post.title}
+                  content={post.content}
+                  tags={post.tags}
+                  published={post.published}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>
